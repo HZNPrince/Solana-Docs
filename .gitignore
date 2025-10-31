@@ -1,0 +1,12 @@
+# Dependencies (ignore in any subfolder)
+node_modules/
+
+# Solana local validator ledger (ignore in any subfolder)
+test-ledger/
+
+# macOS system files (optional but good practice)
+.DS_Store
+
+target/
+
+/**/target/
