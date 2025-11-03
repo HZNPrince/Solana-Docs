@@ -4,7 +4,6 @@ use solana_commitment_config::CommitmentConfig;
 use solana_sdk::{
     program_pack::Pack,
     signature::{Keypair, Signer, read_keypair_file},
-    signers::Signers,
     transaction::Transaction,
 };
 use solana_system_interface::instruction::create_account;
@@ -36,7 +35,7 @@ async fn main() -> Result<()> {
     let airdrop_signature = client
         .request_airdrop(&delegate_wallet.pubkey(), 10_000_000_000)
         .await?;
-    let confirm_tx = client.confirm_transaction(&airdrop_signature).await?;
+    client.confirm_transaction(&airdrop_signature).await?;
 
     loop {
         let confirmed = client.confirm_transaction(&airdrop_signature).await?;

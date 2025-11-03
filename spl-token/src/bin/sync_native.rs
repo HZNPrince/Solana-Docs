@@ -109,7 +109,7 @@ async fn main() -> Result<()> {
         latest_blockhash,
     );
 
-    let tx = client.send_and_confirm_transaction(&transaction).await?;
+    client.send_and_confirm_transaction(&transaction).await?;
 
     println!("WSOL Token Account Address: {}", associated_token_address);
     let token_account = client.get_token_account(&associated_token_address).await?;

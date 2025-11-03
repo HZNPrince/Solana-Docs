@@ -1,5 +1,5 @@
 use anyhow::Result;
-use solana_client::{nonblocking::rpc_client::RpcClient, nonce_utils::get_account};
+use solana_client::nonblocking::rpc_client::RpcClient;
 use solana_commitment_config::CommitmentConfig;
 use solana_sdk::{
     program_pack::Pack,
@@ -12,8 +12,8 @@ use spl_associated_token_account_interface::{
 };
 use spl_token_interface::{
     ID as token_program_id,
-    instruction::{approve_checked, burn_checked, initialize_mint, mint_to},
-    state::{Account, Mint},
+    instruction::{burn_checked, initialize_mint, mint_to},
+    state::Mint,
 };
 
 #[tokio::main]

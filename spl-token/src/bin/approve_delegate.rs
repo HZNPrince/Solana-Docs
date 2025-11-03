@@ -1,5 +1,5 @@
 use anyhow::Result;
-use solana_client::{nonblocking::rpc_client::RpcClient, nonce_utils::get_account};
+use solana_client::nonblocking::rpc_client::RpcClient;
 use solana_commitment_config::CommitmentConfig;
 use solana_sdk::{
     program_pack::Pack,
@@ -35,7 +35,7 @@ async fn main() -> Result<()> {
     let airdrop_signature = client
         .request_airdrop(&delegate_keypair.pubkey(), 10_000_000_000)
         .await?;
-    let confirm_tx = client.confirm_transaction(&airdrop_signature).await?;
+    client.confirm_transaction(&airdrop_signature).await?;
     let airdrop = client
         .request_airdrop(&delegate_keypair.pubkey(), 10_000_000_000)
         .await?;

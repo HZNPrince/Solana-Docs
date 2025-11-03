@@ -1,5 +1,3 @@
-use std::fs::read_dir;
-
 use anyhow::Result;
 use solana_client::nonblocking::rpc_client::RpcClient;
 use solana_commitment_config::CommitmentConfig;
@@ -9,13 +7,11 @@ use solana_sdk::{
     transaction::Transaction,
 };
 use solana_system_interface::instruction::create_account;
-use spl_associated_token_account_interface::{
-    address::get_associated_token_address, instruction::create_associated_token_account,
-};
+
 use spl_token_interface::{
     ID as token_program_id,
-    instruction::{AuthorityType, initialize_mint, mint_to, set_authority},
-    state::{Account, Mint},
+    instruction::{AuthorityType, initialize_mint, set_authority},
+    state::Mint,
 };
 
 #[tokio::main]

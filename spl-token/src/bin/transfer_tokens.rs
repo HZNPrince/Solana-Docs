@@ -4,7 +4,7 @@ use solana_commitment_config::CommitmentConfig;
 use solana_sdk::{
     program_pack::Pack,
     signature::{Keypair, Signer, read_keypair_file},
-    transaction::{self, Transaction},
+    transaction::Transaction,
 };
 use solana_system_interface::instruction::create_account;
 use spl_associated_token_account_interface::{
@@ -68,10 +68,6 @@ async fn main() -> Result<()> {
         "The space required to create mint accounts are {}",
         mint_addr_space
     );
-
-    // ATA account
-    let source_ata_addr =
-        get_associated_token_address(&wallet_address.pubkey(), &mint_addr.pubkey());
 
     //Instructions : 1) Create mint account
     //               2) Initialize Mint account
