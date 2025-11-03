@@ -4,7 +4,7 @@ use solana_commitment_config::CommitmentConfig;
 use solana_sdk::{
     program_pack::Pack,
     signature::{Keypair, Signer, read_keypair_file},
-    transaction::{self, Transaction},
+    transaction::Transaction,
 };
 use solana_system_interface::instruction::create_account;
 use spl_associated_token_account_interface::{
